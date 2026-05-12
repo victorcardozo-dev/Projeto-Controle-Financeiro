@@ -1,10 +1,14 @@
 #Classe Transação
 
+from services.carteira import Carteira
+
 class Transacao():
+
     def __init__(self, valor = 0, descricao = "Não informado", categoria = "Não informado"):
         self.valor = valor
         self.descricao = descricao
         self.categoria = categoria
+        
 
     def exibir_resumo(self):
         mensagem = (
@@ -14,3 +18,5 @@ class Transacao():
             f"\nCATEGORIA: {self.categoria}"
             )
         return mensagem
+    
+

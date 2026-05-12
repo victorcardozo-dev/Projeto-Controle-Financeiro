@@ -3,12 +3,20 @@
 from models.transacao import Transacao
 from models.despesa import Despesa
 from models.receita import Receita
+from services.carteira import Carteira
 
-t1 = Transacao(500, "Saúde", "Saída")
-print(t1.exibir_resumo())
-
-d1 = Despesa(400,"Alimentação","Saída")
-print(d1.exibir_resumo())
 
 r1 = Receita(1500,"Salário","Entrada")
-print(r1.exibir_resumo())
+
+d1 = Despesa(400,"Alimentação","Saída")
+d2 = Despesa(100, "Academia", "Saída")
+d3 = Despesa(500, "Saúde", "Saída")
+
+carteira = Carteira()
+
+carteira.adicionar_transacao(r1)
+carteira.adicionar_transacao(d1)
+carteira.adicionar_transacao(d2)
+
+for transacao in carteira.transacoes:
+    print(transacao.exibir_resumo())
