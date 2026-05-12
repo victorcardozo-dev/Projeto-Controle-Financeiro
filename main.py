@@ -12,11 +12,20 @@ d1 = Despesa(400,"Alimentação","Saída")
 d2 = Despesa(100, "Academia", "Saída")
 d3 = Despesa(500, "Saúde", "Saída")
 
+r2 = Receita(350, "Extra", "Entrada")
+
 carteira = Carteira()
 
 carteira.adicionar_transacao(r1)
 carteira.adicionar_transacao(d1)
 carteira.adicionar_transacao(d2)
+carteira.adicionar_transacao(d3)
+carteira.adicionar_transacao(r2)
 
 for transacao in carteira.transacoes:
     print(transacao.exibir_resumo())
+    print()
+
+
+print(f"Saldo atual R${carteira.calcular_saldo():.2f}")
+
