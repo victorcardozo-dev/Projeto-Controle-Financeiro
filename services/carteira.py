@@ -1,5 +1,9 @@
 # Criando a classe Carteira
 
+import json
+from models.receita import Receita
+from models.despesa import Despesa
+
 
 class Carteira:
     def __init__(self):
@@ -23,3 +27,55 @@ class Carteira:
                 saldo -= transacao.valor
 
         return saldo
+    
+    def salvar_transacoes(self):
+        
+        dados = []
+
+        for transacao in self.transacoes:
+
+            dados.append({
+                "tipo": transacao.__class__.__name__,
+                "valor": transacao.valor,
+                "descricao": transacao.descricao,
+                "categoria": transacao.categoria
+            })
+
+        with open("data/dados.json", "w", encoding="utf-8") as arquivo:
+            json.dump(dados, arquivo, indent=4, ensure_ascii=False)
+
+
+    def carregar_transacoes(self):
+        
+        try:
+
+            with open("data/dados.json", "r", encoding="utf-8") as arquivo:
+
+                dados = json.load(arquivo)
+
+                            
+                print(dados)
+
+                for item in dados:
+                    print(item)
+                    
+                for item in dados:
+                    if item["tipo"] == "Receita":
+
+                        transacao = Receita(
+                            item["valor"],
+                            item["descricao"],
+                            item["categoria"]
+                        )
+                    elif item["tipo"] == "Despesa":
+
+                        transacao = Despesa(
+                            item["valor"],
+                            item["descricao"],
+                            item["categoria"]
+                        )
+
+                    self.transacoes.append(transacao)
+
+        except FileNotFoundError:
+            pass

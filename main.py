@@ -8,6 +8,7 @@ from utils.funcoes_uteis import leiaint, mostra_linha, leia_float
 
 
 carteira = Carteira()
+carteira.carregar_transacoes()
 
 while True:
     print(
@@ -27,6 +28,7 @@ while True:
         
 
     elif escolha == 5:
+        carteira.salvar_transacoes()
         break
 
     elif escolha == 1:

@@ -1,7 +1,5 @@
 #Classe Transação
 
-from services.carteira import Carteira
-
 class Transacao():
 
     def __init__(self, valor = 0, descricao = "Não informado", categoria = "Não informado"):
