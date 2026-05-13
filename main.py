@@ -1,31 +1,61 @@
 # main
 
-from models.transacao import Transacao
+from rich import print
 from models.despesa import Despesa
 from models.receita import Receita
 from services.carteira import Carteira
+from utils.funcoes_uteis import leiaint, mostra_linha, leia_float
 
-
-r1 = Receita(1500,"Salário","Entrada")
-
-d1 = Despesa(400,"Alimentação","Saída")
-d2 = Despesa(100, "Academia", "Saída")
-d3 = Despesa(500, "Saúde", "Saída")
-
-r2 = Receita(350, "Extra", "Entrada")
 
 carteira = Carteira()
 
-carteira.adicionar_transacao(r1)
-carteira.adicionar_transacao(d1)
-carteira.adicionar_transacao(d2)
-carteira.adicionar_transacao(d3)
-carteira.adicionar_transacao(r2)
+while True:
+    print(
+        f"[green]{' MENU DO SISTEMA ':-^60}[/]"
+        f"[blue]\n1- Adicionar Receita"
+        f"\n2- Adicionar Despesa"
+        f"\n3- Listar Transações"
+        f"\n4- Mostrar Saldo"
+        f"\n5- Sair[/]"
+        f"[green]\n{'-' * 60}[/]"
+        )
+    
+    escolha = leiaint("Qual sua opção: ")
+    if escolha < 1  or escolha > 5:
+        mostra_linha()
+        print(f"[red]Digite uma opçao válida! [/]")
+        
 
-for transacao in carteira.transacoes:
-    print(transacao.exibir_resumo())
-    print()
+    elif escolha == 5:
+        break
 
+    elif escolha == 1:
+        mostra_linha()
+        valor = leia_float("Qual o valor da receita: ")
+        descricao = str(input("Qual a descrição da receita: "))
+        categoria = str(input("Qual a categoria da receita: "))
 
-print(f"Saldo atual R${carteira.calcular_saldo():.2f}")
+        receita = Receita(valor, descricao, categoria)
+        carteira.adicionar_transacao(receita)
+        print()
+    
+    elif escolha == 2:
+        mostra_linha()
+        valor = leiaint("Qual o valor da despesa: ")
+        descricao = str(input("Qual a descrição da despesa: "))
+        categoria = str(input("Qual a categoria da despesa: "))
 
+        despesa = Despesa(valor, descricao, categoria)
+        carteira.adicionar_transacao(despesa)
+        print()
+
+    elif escolha == 3:
+        mostra_linha()
+        for transacao in carteira.transacoes:
+            print(transacao.exibir_resumo())
+            print()
+    
+    elif escolha == 4:
+        mostra_linha()
+        print(f"[green on white]O saldo atual da sua carteira é de R${carteira.calcular_saldo():.2f}[/]")
+        print()
