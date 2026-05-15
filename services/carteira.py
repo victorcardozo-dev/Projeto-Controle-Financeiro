@@ -52,12 +52,6 @@ class Carteira:
             with open("data/dados.json", "r", encoding="utf-8") as arquivo:
 
                 dados = json.load(arquivo)
-
-                            
-                print(dados)
-
-                for item in dados:
-                    print(item)
                     
                 for item in dados:
                     if item["tipo"] == "Receita":
@@ -77,5 +71,5 @@ class Carteira:
 
                     self.transacoes.append(transacao)
 
-        except FileNotFoundError:
-            pass
+        except (FileNotFoundError, json.JSONDecodeError): # Se no arquivo .json tiver vazio, quebrado ou inválido o sistema vai iniciar com ele vazio.
+            self.transacoes = []

@@ -1,8 +1,32 @@
 [
     {
         "tipo": "Receita",
+        "valor": 5000.0,
+        "descricao": "salario",
+        "categoria": "entrada"
+    },
+    {
+        "tipo": "Despesa",
+        "valor": 800,
+        "descricao": "aluguel",
+        "categoria": "saida"
+    },
+    {
+        "tipo": "Despesa",
+        "valor": 200,
+        "descricao": "internet",
+        "categoria": "saida"
+    },
+    {
+        "tipo": "Receita",
         "valor": 500.0,
         "descricao": "extra",
         "categoria": "entrada"
+    },
+    {
+        "tipo": "Despesa",
+        "valor": 150,
+        "descricao": "mecanico",
+        "categoria": "saida"
     }
 ]
