@@ -19,7 +19,7 @@
     },
     {
         "tipo": "Receita",
-        "valor": 150.0,
+        "valor": 200.0,
         "descricao": "extra",
         "categoria": "entrada"
     }

@@ -18,17 +18,18 @@ while True:
         f"\n3- Listar Transações"
         f"\n4- Mostrar Saldo"
         f"\n5- Remover transação"
-        f"\n6- Sair[/]"
+        f"\n6- Editar transação"
+        f"\n7- Sair[/]"
         f"[green]\n{'-' * 60}[/]"
-        )
+    )
     
     escolha = leiaint("Qual sua opção: ")
-    if escolha < 1  or escolha > 6:
+    if escolha < 1  or escolha > 7:
         mostra_linha()
         print(f"[red]Digite uma opçao válida! [/]")
         
 
-    elif escolha == 6:
+    elif escolha == 7:
         carteira.salvar_transacoes()
         break
 
@@ -68,7 +69,7 @@ while True:
         mostra_linha()
 
         for indice, transacao in enumerate(carteira.transacoes):
-            print(f"[yellow]ID: {indice} [/]")
+            print(f"[yellow]ID: {indice}[/]")
             print(transacao.exibir_resumo())
             print()
 
@@ -85,5 +86,35 @@ while True:
         else:
 
             print(f"[red]ID inválido.[/]\n")
+
+    elif escolha == 6:
+        mostra_linha()
+
+        for indice, transacao in enumerate(carteira.transacoes):
+            print(f"[yellow]ID: {indice}[/]")
+            print(transacao.exibir_resumo())
+            print()
+
+        mostra_linha()
             
+        indice_editar = leiaint("Qual transação deseja editar? Passe o ID: ")
+
+        if 0 <= indice_editar < len(carteira.transacoes):
             
+            valor = leia_float("Novo valor: ")
+            descricao = str(input("Descrição: "))
+
+            categoria = str(input("Categoria: "))
+
+            atualizado = carteira.editar_transacao(
+                indice_editar,
+                valor, 
+                descricao, 
+                categoria
+            )
+
+            print("[green]Atualizão realizada com sucesso.[/]")
+
+        else:
+
+            print("[red]ID inválido[/]")

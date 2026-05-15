@@ -85,3 +85,18 @@ class Carteira:
             return removida
         
         return None
+    
+
+    def editar_transacao(self, indice, valor, descricao, categoria):
+
+        if 0 <= indice < len(self.transacoes):
+
+            transacao = self.transacoes[indice]
+
+            transacao.valor = valor
+            transacao.descricao = descricao
+            transacao.categoria = categoria
+
+            return True
+        
+        return False
