@@ -13,20 +13,20 @@ carteira.carregar_transacoes()
 while True:
     print(
         f"[green]{' MENU DO SISTEMA ':-^60}[/]"
-        f"[blue]\n1- Adicionar Receita"
+        f"\n[blue]1- Adicionar Receita"
         f"\n2- Adicionar Despesa"
         f"\n3- Listar Transações"
         f"\n4- Mostrar Saldo"
         f"\n5- Remover transação"
         f"\n6- Editar transação"
         f"\n7- Sair[/]"
-        f"[green]\n{'-' * 60}[/]"
+        f"\n[green]{'-' * 60}[/]"
     )
     
     escolha = leiaint("Qual sua opção: ")
     if escolha < 1  or escolha > 7:
         mostra_linha()
-        print(f"[red]Digite uma opçao válida! [/]")
+        print(f"[red]Digite uma opção válida! [/]")
         
 
     elif escolha == 7:
@@ -113,8 +113,8 @@ while True:
                 categoria
             )
 
-            print("[green]Atualizão realizada com sucesso.[/]")
+            print("[green]Atualização realizada com sucesso.[/]")
 
         else:
 
-            print("[red]ID inválido[/]")
+            print("[red]ID inválido.[/]")
