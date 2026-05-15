@@ -56,7 +56,7 @@ while True:
     elif escolha == 3:
         mostra_linha()
         for indice, transacao in enumerate(carteira.transacoes):
-            print(f"[yellow]ID: {indice} [/]")
+            print(f"[yellow]ÍNDICE: {indice} [/]")
             print(transacao.exibir_resumo())
             print()
     
@@ -69,35 +69,35 @@ while True:
         mostra_linha()
 
         for indice, transacao in enumerate(carteira.transacoes):
-            print(f"[yellow]ID: {indice}[/]")
+            print(f"[yellow]ÍNDICE: {indice}[/]")
             print(transacao.exibir_resumo())
             print()
 
         mostra_linha()
 
-        indice_remover = leiaint("Qual transação deseja remover? Passe o ID: ")
+        indice_remover = leiaint("Qual transação deseja remover? Passe o ÍNDICE: ")
 
         removida = carteira.remover_transacao(indice_remover)
 
         if removida:
 
-            print(f"[green]Transação de ID: {indice_remover} removido com sucesso.[/]\n")
+            print(f"[green]Transação de ÍNDICE: {indice_remover} removido com sucesso.[/]\n")
 
         else:
 
-            print(f"[red]ID inválido.[/]\n")
+            print(f"[red]ÍNDICE inválido.[/]\n")
 
     elif escolha == 6:
         mostra_linha()
 
         for indice, transacao in enumerate(carteira.transacoes):
-            print(f"[yellow]ID: {indice}[/]")
+            print(f"[yellow]ÍNDICE: {indice}[/]")
             print(transacao.exibir_resumo())
             print()
 
         mostra_linha()
             
-        indice_editar = leiaint("Qual transação deseja editar? Passe o ID: ")
+        indice_editar = leiaint("Qual transação deseja editar? Passe o ÍNDICE: ")
 
         if 0 <= indice_editar < len(carteira.transacoes):
             
@@ -117,4 +117,4 @@ while True:
 
         else:
 
-            print("[red]ID inválido.[/]")
+            print("[red]ÍNDICE inválido.[/]")

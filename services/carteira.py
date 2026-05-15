@@ -36,6 +36,8 @@ class Carteira:
         for transacao in self.transacoes:
 
             dados.append({
+                "id": transacao.id,
+                "data": transacao.data,
                 "tipo": transacao.__class__.__name__,
                 "valor": transacao.valor,
                 "descricao": transacao.descricao,
@@ -55,6 +57,7 @@ class Carteira:
                 dados = json.load(arquivo)
                     
                 for item in dados:
+
                     if item["tipo"] == "Receita":
 
                         transacao = Receita(
@@ -62,6 +65,7 @@ class Carteira:
                             item["descricao"],
                             item["categoria"]
                         )
+
                     elif item["tipo"] == "Despesa":
 
                         transacao = Despesa(
@@ -70,6 +74,9 @@ class Carteira:
                             item["categoria"]
                         )
 
+                    transacao.id = item["id"]
+                    transacao.data = item["data"]
+                    
                     self.transacoes.append(transacao)
 
         except (FileNotFoundError, json.JSONDecodeError): # Se o arquivo .json estiver vazio, quebrado ou inválido o sistema vai iniciar com ele vazio.
