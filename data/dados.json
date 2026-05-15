@@ -12,21 +12,15 @@
         "categoria": "saida"
     },
     {
-        "tipo": "Despesa",
-        "valor": 200,
-        "descricao": "internet",
-        "categoria": "saida"
-    },
-    {
         "tipo": "Receita",
         "valor": 500.0,
         "descricao": "extra",
         "categoria": "entrada"
     },
     {
-        "tipo": "Despesa",
-        "valor": 150,
-        "descricao": "mecanico",
-        "categoria": "saida"
+        "tipo": "Receita",
+        "valor": 150.0,
+        "descricao": "extra",
+        "categoria": "entrada"
     }
 ]

@@ -15,6 +15,7 @@ def leiaint(msg):
       else:
           return n
 
+
 def leia_float(msg):
       while True:
         try:
@@ -27,6 +28,7 @@ def leia_float(msg):
             return 0
         else:
             return n
+
 
 def mostra_linha():
     print("-" * 60)

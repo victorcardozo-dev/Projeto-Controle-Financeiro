@@ -17,17 +17,18 @@ while True:
         f"\n2- Adicionar Despesa"
         f"\n3- Listar Transações"
         f"\n4- Mostrar Saldo"
-        f"\n5- Sair[/]"
+        f"\n5- Remover transação"
+        f"\n6- Sair[/]"
         f"[green]\n{'-' * 60}[/]"
         )
     
     escolha = leiaint("Qual sua opção: ")
-    if escolha < 1  or escolha > 5:
+    if escolha < 1  or escolha > 6:
         mostra_linha()
         print(f"[red]Digite uma opçao válida! [/]")
         
 
-    elif escolha == 5:
+    elif escolha == 6:
         carteira.salvar_transacoes()
         break
 
@@ -53,7 +54,8 @@ while True:
 
     elif escolha == 3:
         mostra_linha()
-        for transacao in carteira.transacoes:
+        for indice, transacao in enumerate(carteira.transacoes):
+            print(f"[yellow]ID: {indice} [/]")
             print(transacao.exibir_resumo())
             print()
     
@@ -61,3 +63,27 @@ while True:
         mostra_linha()
         print(f"[green on white]O saldo atual da sua carteira é de R${carteira.calcular_saldo():.2f}[/]")
         print()
+
+    elif escolha == 5:
+        mostra_linha()
+
+        for indice, transacao in enumerate(carteira.transacoes):
+            print(f"[yellow]ID: {indice} [/]")
+            print(transacao.exibir_resumo())
+            print()
+
+        mostra_linha()
+
+        indice_remover = leiaint("Qual transação deseja remover? Passe o ID: ")
+
+        removida = carteira.remover_transacao(indice_remover)
+
+        if removida:
+
+            print(f"[green]Transação de ID: {indice_remover} removido com sucesso.[/]\n")
+
+        else:
+
+            print(f"[red]ID inválido.[/]\n")
+            
+            

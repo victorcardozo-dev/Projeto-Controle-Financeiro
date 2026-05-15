@@ -6,6 +6,7 @@ from models.despesa import Despesa
 
 
 class Carteira:
+
     def __init__(self):
         self.transacoes = []
 
@@ -71,5 +72,16 @@ class Carteira:
 
                     self.transacoes.append(transacao)
 
-        except (FileNotFoundError, json.JSONDecodeError): # Se no arquivo .json tiver vazio, quebrado ou inválido o sistema vai iniciar com ele vazio.
+        except (FileNotFoundError, json.JSONDecodeError): # Se o arquivo .json estiver vazio, quebrado ou inválido o sistema vai iniciar com ele vazio.
             self.transacoes = []
+
+    
+    def remover_transacao(self, indice):
+
+        if 0 <= indice < len(self.transacoes):
+
+            removida = self.transacoes.pop(indice)
+
+            return removida
+        
+        return None
