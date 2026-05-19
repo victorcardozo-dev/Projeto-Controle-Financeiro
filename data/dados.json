@@ -38,5 +38,13 @@
         "valor": 750.0,
         "descricao": "aluguel",
         "categoria": "saida"
+    },
+    {
+        "id": "99866fb5-ac40-433b-85d7-03976e818e83",
+        "data": "19/05/2026",
+        "tipo": "Receita",
+        "valor": 230.0,
+        "descricao": "extra garçom",
+        "categoria": "entrada"
     }
 ]

@@ -30,5 +30,6 @@ def leia_float(msg):
             return n
 
 
-def mostra_linha():
-    print("-" * 60)
+def mostra_linha(valor=35):
+    print("-" * valor)
+

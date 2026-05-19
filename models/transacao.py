@@ -17,7 +17,7 @@ class Transacao():
     def exibir_resumo(self):
 
         mensagem =(
-            f"{self.__class__.__name__:-^30}" 
+            f"{self.__class__.__name__:-^45}" 
             f"\nID: {self.id}"
             f"\nDATA: {self.data}"
             f"\nVALOR: R${self.valor:.2f}"

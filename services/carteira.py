@@ -132,3 +132,15 @@ class Carteira:
             "saldo": saldo
         }
         
+
+    def filtrar_por_categoria(self, categoria):
+
+        resultado = []
+
+        for transacao in self.transacoes:
+
+            if transacao.categoria.strip().lower() == categoria.strip().lower():
+
+                resultado.append(transacao)
+
+        return resultado

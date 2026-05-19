@@ -12,7 +12,7 @@ carteira.carregar_transacoes()
 
 while True:
     print(
-        f"[green]{' MENU DO SISTEMA ':-^60}[/]"
+        f"[green]{' MENU DO SISTEMA ':-^35}[/]"
         f"\n[blue]1- Adicionar Receita"
         f"\n2- Adicionar Despesa"
         f"\n3- Listar Transações"
@@ -20,19 +20,21 @@ while True:
         f"\n5- Remover transação"
         f"\n6- Editar transação"
         f"\n7- Relatório Financeiro"
-        f"\n8- Sair[/]"
-        f"\n[green]{'-' * 60}[/]"
+        f"\n8- Filtrar Transações"
+        f"\n9- Sair[/]"
+        f"\n[green]{'-' * 35}[/]"
     )
     
     escolha = leiaint("Qual sua opção: ")
-    if escolha < 1  or escolha > 8:
+    if escolha < 1  or escolha > 9:
         mostra_linha()
         print(f"[red]Digite uma opção válida! [/]")
         
 
-    elif escolha == 8:
+    elif escolha == 9:
         carteira.salvar_transacoes()
         break
+
 
     elif escolha == 1:
         mostra_linha()
@@ -44,6 +46,7 @@ while True:
         carteira.adicionar_transacao(receita)
         print()
     
+
     elif escolha == 2:
         mostra_linha()
         valor = leiaint("Qual o valor da despesa: ")
@@ -54,6 +57,7 @@ while True:
         carteira.adicionar_transacao(despesa)
         print()
 
+
     elif escolha == 3:
         mostra_linha()
         for indice, transacao in enumerate(carteira.transacoes):
@@ -61,10 +65,12 @@ while True:
             print(transacao.exibir_resumo())
             print()
     
+
     elif escolha == 4:
         mostra_linha()
         print(f"[green on white]O saldo atual da sua carteira é de R${carteira.calcular_saldo():.2f}[/]")
         print()
+
 
     elif escolha == 5:
         mostra_linha()
@@ -87,6 +93,7 @@ while True:
         else:
 
             print(f"[red]ÍNDICE inválido.[/]\n")
+
 
     elif escolha == 6:
         mostra_linha()
@@ -120,6 +127,7 @@ while True:
 
             print("[red]ÍNDICE inválido.[/]")
 
+
     elif escolha == 7:
         mostra_linha()
 
@@ -128,3 +136,44 @@ while True:
         print(f"[green]Total Receita:[/] R${relatorio['receita']:.2f}")
         print(f"[red]Total Despesas:[/] R${relatorio['despesa']:.2f}")
         print(f"[yellow]Saldo:[/] R${relatorio['saldo']:.2f}")
+
+
+    elif escolha == 8:
+        mostra_linha()
+        print(
+            f"[blue]1- Filtrar por CATEGORIA"
+            f"\n2- Filtrar por TIPO"
+            f"\n3- Filtrar por DATA[/]"
+        )
+        mostra_linha()
+
+        filtro = leiaint("Escollha o filtro: ")
+
+        if filtro == 1:
+            
+            categoria = str(input("Qual a categoria: "))
+
+            resultado = carteira.filtrar_por_categoria(categoria)
+
+            if resultado:
+
+                for t in resultado:
+                    print(t.exibir_resumo())
+                    print()
+
+            else:
+                print(f"[red]Categoria não encontrada.[/]")
+
+
+        elif filtro == 2:
+            pass
+
+        
+        elif filtro == 3:
+            pass
+
+
+        else:
+            print("[red]Filtro inválido.[/]")
+
+        
