@@ -14,5 +14,29 @@
         "valor": 50,
         "descricao": "corte cabelo",
         "categoria": "saida"
+    },
+    {
+        "id": "b6032f5e-95df-49b3-ad4a-7ad949e3616f",
+        "data": "19/05/2026",
+        "tipo": "Receita",
+        "valor": 2000.0,
+        "descricao": "salario",
+        "categoria": "entrada"
+    },
+    {
+        "id": "eba92a69-5ac4-4e13-8b23-90b35a91a681",
+        "data": "19/05/2026",
+        "tipo": "Receita",
+        "valor": 500.0,
+        "descricao": "extra",
+        "categoria": "entrada"
+    },
+    {
+        "id": "0ed8152f-8dac-4821-b87a-1d3befb3412b",
+        "data": "19/05/2026",
+        "tipo": "Despesa",
+        "valor": 750.0,
+        "descricao": "aluguel",
+        "categoria": "saida"
     }
 ]

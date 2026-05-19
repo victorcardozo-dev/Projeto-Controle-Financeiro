@@ -19,17 +19,18 @@ while True:
         f"\n4- Mostrar Saldo"
         f"\n5- Remover transação"
         f"\n6- Editar transação"
-        f"\n7- Sair[/]"
+        f"\n7- Relatório Financeiro"
+        f"\n8- Sair[/]"
         f"\n[green]{'-' * 60}[/]"
     )
     
     escolha = leiaint("Qual sua opção: ")
-    if escolha < 1  or escolha > 7:
+    if escolha < 1  or escolha > 8:
         mostra_linha()
         print(f"[red]Digite uma opção válida! [/]")
         
 
-    elif escolha == 7:
+    elif escolha == 8:
         carteira.salvar_transacoes()
         break
 
@@ -118,3 +119,12 @@ while True:
         else:
 
             print("[red]ÍNDICE inválido.[/]")
+
+    elif escolha == 7:
+        mostra_linha()
+
+        relatorio = carteira.gerar_relatorio()
+
+        print(f"[green]Total Receita:[/] R${relatorio['receita']:.2f}")
+        print(f"[red]Total Despesas:[/] R${relatorio['despesa']:.2f}")
+        print(f"[yellow]Saldo:[/] R${relatorio['saldo']:.2f}")
