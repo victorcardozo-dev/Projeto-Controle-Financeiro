@@ -157,3 +157,16 @@ class Carteira:
                 resultado.append(transacao)
 
         return resultado
+    
+
+    def filtrar_por_data(self, data):
+
+        resultado = []
+
+        for transacao in self.transacoes:
+
+            if transacao.data == data:
+
+                resultado.append(transacao)
+
+        return resultado

@@ -187,7 +187,14 @@ while True:
 
 
         elif filtro == 3:
-            pass
+            
+            mostra_linha()
+            
+            data = str(input("Qual a data da transação (dd/mm/aaa): "))
+
+            resultado = carteira.filtrar_por_data(data)
+
+            exibir_transacoes(resultado)
 
 
         else:
