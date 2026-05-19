@@ -4,7 +4,7 @@ from rich import print
 from models.despesa import Despesa
 from models.receita import Receita
 from services.carteira import Carteira
-from utils.funcoes_uteis import leiaint, mostra_linha, leia_float
+from utils.funcoes_uteis import leiaint, mostra_linha, leia_float, exibir_transacoes
 
 
 carteira = Carteira()
@@ -145,30 +145,47 @@ while True:
             f"\n2- Filtrar por TIPO"
             f"\n3- Filtrar por DATA[/]"
         )
+
         mostra_linha()
 
         filtro = leiaint("Escollha o filtro: ")
 
         if filtro == 1:
+
+            mostra_linha()
             
             categoria = str(input("Qual a categoria: "))
 
             resultado = carteira.filtrar_por_categoria(categoria)
 
-            if resultado:
-
-                for t in resultado:
-                    print(t.exibir_resumo())
-                    print()
-
-            else:
-                print(f"[red]Categoria não encontrada.[/]")
+            exibir_transacoes(resultado)
 
 
         elif filtro == 2:
-            pass
+            
+            mostra_linha()
 
-        
+            print(
+                f"[blue]1- Receita"
+                f"\n2- Despesa[/]"
+            )
+
+            mostra_linha()
+            
+            tipo_digitado = leiaint("Qual o tipo: ")
+
+            tipos = {
+                1: "Receita",
+                2: "Despesa"
+            }
+
+            tipo = tipos.get(tipo_digitado)
+
+            resultado = carteira.filtrar_por_tipo(tipo)
+
+            exibir_transacoes(resultado)
+
+
         elif filtro == 3:
             pass
 

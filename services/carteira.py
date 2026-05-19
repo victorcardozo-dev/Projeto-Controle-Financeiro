@@ -144,3 +144,16 @@ class Carteira:
                 resultado.append(transacao)
 
         return resultado
+
+
+    def filtrar_por_tipo(self, tipo):
+
+        resultado = []
+
+        for transacao in self.transacoes:
+
+            if transacao.__class__.__name__ == tipo:
+                
+                resultado.append(transacao)
+
+        return resultado
