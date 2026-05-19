@@ -107,3 +107,28 @@ class Carteira:
             return True
         
         return False
+    
+
+    def gerar_relatorio(self):
+
+        total_receita = 0
+        total_despesa = 0
+
+        for transacao in self.transacoes:
+
+            if transacao.__class__.__name__ == "Receita":
+
+                total_receita += transacao.valor
+
+            elif transacao.__class__.__name__ == "Despesa":
+
+                total_despesa += transacao.valor
+
+        saldo = total_receita - total_despesa
+
+        return{
+            "receita": total_receita,
+            "despesa": total_despesa,
+            "saldo": saldo
+        }
+        
