@@ -6,7 +6,6 @@ def mostra_linha(valor=35):
     print("-" * valor)
 
 
-
 def exibir_transacoes(lista):
 
     if lista:

@@ -70,5 +70,13 @@
         "valor": 50,
         "descricao": "pneu furado",
         "categoria": "emergencia"
+    },
+    {
+        "id": "917dbe01-5f93-4c1c-95ef-43018fa8e92b",
+        "data": "21/05/2026",
+        "tipo": "Despesa",
+        "valor": 200.0,
+        "descricao": "conta de luz",
+        "categoria": "saida"
     }
 ]
