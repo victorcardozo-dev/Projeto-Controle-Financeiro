@@ -4,7 +4,8 @@ from rich import print
 from models.despesa import Despesa
 from models.receita import Receita
 from services.carteira import Carteira
-from utils.funcoes_uteis import leiaint, mostra_linha, leia_float, exibir_transacoes
+from ui.exibicao import exibir_transacoes, mostra_linha
+from ui.inputs import leia_float, leiaint
 
 
 carteira = Carteira()

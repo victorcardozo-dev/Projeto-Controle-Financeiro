@@ -46,5 +46,29 @@
         "valor": 230.0,
         "descricao": "extra garçom",
         "categoria": "entrada"
+    },
+    {
+        "id": "1249b0fb-3f0b-4126-902b-8d84f53456b9",
+        "data": "21/05/2026",
+        "tipo": "Receita",
+        "valor": 400.0,
+        "descricao": "extra ifood",
+        "categoria": "entrada"
+    },
+    {
+        "id": "3ea076da-11dd-4eff-a1a8-05f6d445720e",
+        "data": "21/05/2026",
+        "tipo": "Receita",
+        "valor": 150.0,
+        "descricao": "investimento dolar",
+        "categoria": "entrada"
+    },
+    {
+        "id": "a5df7330-6049-4277-b97e-9e4f47636a96",
+        "data": "21/05/2026",
+        "tipo": "Despesa",
+        "valor": 50,
+        "descricao": "pneu furado",
+        "categoria": "emergencia"
     }
 ]

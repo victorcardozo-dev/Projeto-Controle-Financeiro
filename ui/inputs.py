@@ -1,6 +1,6 @@
-# Função para ler um número inteiro e mostrar uma linha
 
 from rich import print
+
 
 def leiaint(msg):
   while True:
@@ -28,22 +28,3 @@ def leia_float(msg):
             return 0
         else:
             return n
-
-
-def mostra_linha(valor=35):
-    print("-" * valor)
-
-
-
-def exibir_transacoes(lista):
-
-    if lista:
-
-        for transacao in lista:
-
-            print(transacao.exibir_resumo())
-            print()
-
-    else:
-
-        print("[red]Nenhuma transação encontrada.[/]")
