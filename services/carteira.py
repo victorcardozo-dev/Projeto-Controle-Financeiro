@@ -1,6 +1,6 @@
 # Criando a classe Carteira
 
-import json
+from database.repository import inserir_transacao, listar_trasacoes, deletar_transacao, atualizar_transacao
 from models.receita import Receita
 from models.despesa import Despesa
 
@@ -12,7 +12,10 @@ class Carteira:
 
 
     def adicionar_transacao(self, transacao):
+
         self.transacoes.append(transacao)
+
+        inserir_transacao(transacao)
 
 
     def calcular_saldo(self):
@@ -29,69 +32,58 @@ class Carteira:
 
         return saldo
     
-    def salvar_transacoes(self):
-        
-        dados = []
-
-        for transacao in self.transacoes:
-
-            dados.append({
-                "id": transacao.id,
-                "data": transacao.data,
-                "tipo": transacao.__class__.__name__,
-                "valor": transacao.valor,
-                "descricao": transacao.descricao,
-                "categoria": transacao.categoria
-            })
-
-        with open("data/dados.json", "w", encoding="utf-8") as arquivo:
-            json.dump(dados, arquivo, indent=4, ensure_ascii=False)
 
 
     def carregar_transacoes(self):
+
+        dados = listar_trasacoes()
+
+        self.transacoes = []
+
+        for item in dados:
+
+            id_transacao = item[0]
+            tipo = item[1]
+            valor = item[2]
+            descricao = item[3]
+            categoria = item[4]
+            data = item[5]
+
+            if tipo == "Receita":
+
+                transacao = Receita(
+                    valor,
+                    descricao,
+                    categoria
+                )
+
+            else:
+
+                transacao = Despesa(
+                    valor,
+                    descricao,
+                    categoria
+                )
+
+            transacao.id = id_transacao
+            transacao.data = data
+
+            self.transacoes.append(transacao)
         
-        try:
 
-            with open("data/dados.json", "r", encoding="utf-8") as arquivo:
-
-                dados = json.load(arquivo)
-                    
-                for item in dados:
-
-                    if item["tipo"] == "Receita":
-
-                        transacao = Receita(
-                            item["valor"],
-                            item["descricao"],
-                            item["categoria"]
-                        )
-
-                    elif item["tipo"] == "Despesa":
-
-                        transacao = Despesa(
-                            item["valor"],
-                            item["descricao"],
-                            item["categoria"]
-                        )
-
-                    transacao.id = item["id"]
-                    transacao.data = item["data"]
-                    
-                    self.transacoes.append(transacao)
-
-        except (FileNotFoundError, json.JSONDecodeError): # Se o arquivo .json estiver vazio, quebrado ou inválido o sistema vai iniciar com ele vazio.
-            self.transacoes = []
-
-    
     def remover_transacao(self, indice):
 
         if 0 <= indice < len(self.transacoes):
+            
+            transacao = self.transacoes[indice]
 
-            removida = self.transacoes.pop(indice)
+            deletar_transacao(transacao.id)
 
-            return removida
+            self.transacoes.pop(indice)
+
+            return True
         
-        return None
+        return False
     
 
     def editar_transacao(self, indice, valor, descricao, categoria):
@@ -103,6 +95,8 @@ class Carteira:
             transacao.valor = valor
             transacao.descricao = descricao
             transacao.categoria = categoria
+
+            atualizar_transacao(transacao)
 
             return True
         

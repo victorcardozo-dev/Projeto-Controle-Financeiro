@@ -1,5 +1,6 @@
 # main
 
+from database.schema import criar_tabela
 from rich import print
 from services.carteira import Carteira
 from ui.menus import (
@@ -8,9 +9,11 @@ from ui.menus import (
     editar_transacao, relatorio_financeiro, filtrar_transacoes
 )
 
+criar_tabela()
 
 carteira = Carteira()
 carteira.carregar_transacoes()
+
 
 while True:
 
@@ -22,7 +25,6 @@ while True:
         
 
     elif escolha == 9:
-        carteira.salvar_transacoes()
         break
 
 

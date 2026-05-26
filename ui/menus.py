@@ -193,7 +193,7 @@ def filtrar_transacoes(carteira):
         
         mostra_linha()
         
-        data = str(input("Qual a data da transação (dd/mm/aaa): "))
+        data = str(input("Qual a data da transação (dd/mm/aaaa): "))
 
         resultado = carteira.filtrar_por_data(data)
 
