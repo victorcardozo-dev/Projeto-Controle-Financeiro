@@ -9,6 +9,7 @@ from ui.menus import (
     editar_transacao, relatorio_financeiro, filtrar_transacoes
 )
 
+
 criar_tabela()
 
 carteira = Carteira()
