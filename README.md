@@ -23,10 +23,9 @@ Projeto de controle financeiro desenvolvido em Python com foco em aprendizado de
 - ✅ Cálculo automático de saldo
 - ✅ Relatório financeiro 
 - ✅ Filtro por:
-
-* Categoria
-* Tipo
-* Data
+    * Categoria
+    * Tipo
+    * Data
 
 - ✅ Persistência com SQLite
 - ✅ IDs únicos com UUID
