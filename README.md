@@ -15,22 +15,22 @@ Projeto de controle financeiro desenvolvido em Python com foco em aprendizado de
 
 # 🚀 Funcionalidades
 
--✅ Adicionar receitas
--✅ Adicionar despesas
--✅ Listar transações
--✅ Editar transações
--✅ Remover transações
--✅ Cálculo automático de saldo
--✅ Relatório financeiro 
--✅ Filtro por:
+- ✅ Adicionar receitas
+- ✅ Adicionar despesas
+- ✅ Listar transações
+- ✅ Editar transações
+- ✅ Remover transações
+- ✅ Cálculo automático de saldo
+- ✅ Relatório financeiro 
+- ✅ Filtro por:
 
 * Categoria
 * Tipo
 * Data
 
--✅ Persistência com SQLite
--✅ IDs únicos com UUID
--✅ Interface no terminal utilizando Rich
+- ✅ Persistência com SQLite
+- ✅ IDs únicos com UUID
+- ✅ Interface no terminal utilizando Rich
 
 ---
 
