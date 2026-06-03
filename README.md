@@ -21,7 +21,7 @@ Projeto de controle financeiro desenvolvido em Python com foco em aprendizado de
 ✅ Editar transações
 ✅ Remover transações
 ✅ Cálculo automático de saldo
-✅ Relatório financeiro
+✅ Relatório financeiro 
 ✅ Filtro por:
 
 * Categoria
